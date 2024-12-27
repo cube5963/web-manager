@@ -9,3 +9,7 @@ export function Greet(arg1) {
 export function Hello(arg1) {
   return window['go']['main']['App']['Hello'](arg1);
 }
+
+export function SetWindowSize() {
+  return window['go']['main']['App']['SetWindowSize']();
+}
