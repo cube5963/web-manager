@@ -26,6 +26,25 @@ const template: MenuItemConstructorOptions[] = [
                 }
             }
         ]
+    },
+    {
+        label: "編集",
+        submenu: [
+            {
+                label: "コピー",
+                accelerator: "CmdOrCtrl+C",
+                click: () => {
+                    console.log("copy");
+                }
+            },
+            {
+                label: "貼り付け",
+                accelerator: "CmdOrCtrl+V",
+                click: () => {
+                    console.log("paste");
+                }
+            }
+        ]
     }
 ]
 
