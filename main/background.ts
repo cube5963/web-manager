@@ -1,5 +1,5 @@
 import path from 'path'
-import { app, ipcMain, Menu } from 'electron'
+import { app, ipcMain, Menu, screen } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
 import { menu } from './menu'
@@ -17,13 +17,18 @@ if (isProd) {
     Menu.setApplicationMenu(menu);
   })
 
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width, height} = primaryDisplay.workAreaSize;
+
   const mainWindow = createWindow('main', {
-    width: 1000,
-    height: 600,
+    width: width,
+    height: height,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
   })
+
+  mainWindow.maximize();
 
   if (isProd) {
     await mainWindow.loadURL('app://./home')

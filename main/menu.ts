@@ -1,4 +1,4 @@
-import { Menu, MenuItemConstructorOptions } from 'electron';
+import { dialog, Menu, MenuItemConstructorOptions, BrowserWindow } from 'electron';
 
 const template: MenuItemConstructorOptions[] = [
     {
@@ -42,6 +42,28 @@ const template: MenuItemConstructorOptions[] = [
                 accelerator: "CmdOrCtrl+V",
                 click: () => {
                     console.log("paste");
+                }
+            }
+        ]
+    },
+    {
+        label: "開発",
+        submenu: [
+            {
+                label: "開発者ツール",
+                accelerator: "CmdOrCtrl+I",
+                click: () => {
+                    console.log("developer tools");
+                }
+            },
+            {
+                label: "ページ移動",
+                click: async () => {
+                    const win = BrowserWindow.getFocusedWindow();
+                    if (win) {
+                        const port = process.argv[2]
+                        await win.loadURL(`http://localhost:${port}/dev`);
+                    }
                 }
             }
         ]
