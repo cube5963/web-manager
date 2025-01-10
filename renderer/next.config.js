@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const withTM = require('next-transpile-modules')([
+  'antd',
+  '@ant-design/icons',
+  'rc-util',
+  'rc-pagination',
+  'rc-picker',
+  'rc-table'
+]);
+
+module.exports = withTM({
   output: 'export',
   distDir: process.env.NODE_ENV === 'production' ? '../app' : '.next',
   trailingSlash: true,
@@ -8,19 +17,13 @@ module.exports = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      test: /node_modules\/rc-util\/es/,
+      test: /\.m?js$/,
       resolve: {
         fullySpecified: false,
       },
+      type: 'javascript/auto',
     });
 
-    config.module.rules.push({
-      test: /node_modules\/antd\/es/,
-      resolve: {
-        fullySpecified: false,
-      },
-    });
-
-    return config
+    return config;
   },
-}
+});
