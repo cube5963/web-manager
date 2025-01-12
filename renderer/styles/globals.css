@@ -13,3 +13,11 @@
     @apply text-white font-bold px-4 py-2 rounded bg-white;
   }
 }
+
+header {
+  -webkit-app-region: drag;
+
+  & button {
+    -webkit-app-region: no-drag;
+  }
+}
