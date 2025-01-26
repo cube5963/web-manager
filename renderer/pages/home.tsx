@@ -1,8 +1,5 @@
-import React from 'react'
+import React from 'react';
 import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-
 import { Layout } from 'antd'
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -48,7 +45,7 @@ export default function HomePage() {
         <title>Home - Nextron (with-tailwindcss)</title>
       </Head>
       <Layout style={layoutStyle}>
-      <Sider width="25%" style={siderStyle} >
+      <Sider width="3%" style={siderStyle}>
         Sider
       </Sider>
       <Layout>

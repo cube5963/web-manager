@@ -46,6 +46,7 @@ app.whenReady().then(async () => {
       const port = process.argv[2];
       await mainWindow.loadURL(`http://localhost:${port}/home`);
       mainWindow.webContents.openDevTools();
+
     }
   } catch (error) {
     console.error('Failed to load URL:', error);
