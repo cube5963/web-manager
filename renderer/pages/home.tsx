@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head'
 import { Layout } from 'antd'
 
+import Sidebar from './../components/sidebar'
+
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
@@ -45,8 +47,8 @@ export default function HomePage() {
         <title>Home - Nextron (with-tailwindcss)</title>
       </Head>
       <Layout style={layoutStyle}>
-      <Sider width="3%" style={siderStyle}>
-        Sider
+      <Sider width="5%" style={siderStyle}>
+        <Sidebar />
       </Sider>
       <Layout>
         <Header style={headerStyle}>Header</Header>
